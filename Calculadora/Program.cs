@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Runtime.Remoting.Messaging;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Xml;
+
 
 
 namespace Calculadora
@@ -97,6 +92,7 @@ namespace Calculadora
         {
             Console.WriteLine("SUBTRAÇÃO");
             Console.WriteLine("Coloque Primeiro Valor");
+
             var valor1 = float.Parse(Console.ReadLine());
 
             Console.WriteLine("Coloque o Segundo Valor");
@@ -142,9 +138,13 @@ namespace Calculadora
         {
             Console.WriteLine("PORCETAGEM");
             Console.WriteLine("Coloque o Primeiro Valor");
+
             var valor1 = float.Parse(Console.ReadLine());
+
             Console.WriteLine($"Quantos PORCENTOS de {valor1}");
+
             var valor2 = float.Parse(Console.ReadLine());
+
             var resultado = (valor2/ 100) * valor1;
             Console.WriteLine($"O Resultado da PORCETAGEM é: {resultado}");
             Continuar();
@@ -154,6 +154,7 @@ namespace Calculadora
         {
         Console.WriteLine("POTENCIAÇÃO");
         Console.WriteLine("Coloque o Primeiro Valor");
+
         var valor1 = Convert.ToDouble(Console.ReadLine());
 
         Console.WriteLine("Coloque o Segundo Valor");
