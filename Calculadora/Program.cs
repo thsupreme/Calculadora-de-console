@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Runtime.Remoting.Messaging;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Xml;
+
 
 
 namespace Calculadora
@@ -20,45 +15,54 @@ namespace Calculadora
         {
             Console.Clear();
             Console.WriteLine("Selecione sua Operação");
+            Console.WriteLine("");
             Console.WriteLine("1 - SOMA");
+            Console.WriteLine("");
             Console.WriteLine("2 - SUBTRAÇÃO");
+            Console.WriteLine("");
             Console.WriteLine("3 - MULTIPLICAÇÃO");
+            Console.WriteLine("");
             Console.WriteLine("4 - DIVISÃO");
+            Console.WriteLine("");
             Console.WriteLine("5 - PORCETAGEM");
+            Console.WriteLine("");
             Console.WriteLine("6 - POTENCIAÇÃO");
+            Console.WriteLine("");
             Console.WriteLine("7 - SENO COSSENO TANGENTE");
+            Console.WriteLine("");
             Console.WriteLine("8 - PORCETAGEM");
-            Console.WriteLine("9 - ");
-            Console.WriteLine("10 - SAIR DA APLIACAÇÃO");
+            Console.WriteLine("");
+            Console.WriteLine("9 - SAIR DA APLIACAÇÃO");
+
             short key = short.Parse(Console.ReadLine());
             switch (key)
             {
                 case 1:
-                    soma();
+                    Soma();
                     break;
 
                 case 2:
-                    subtracao();
+                    Subtracao();
                     break;
 
                 case 3:
-                    multiplicacao();
+                    Multiplicacao();
                     break;
 
                 case 4:
-                    divisao();
+                    Divisao();
                     break;
 
                 case 5:
-                    porcetagem();
+                    Porcetagem();
                     break;
 
                 case 6:
-                    potenciacao();
+                    Potenciacao();
                     break;
 
                 case 7:
-                    senocossenotangente();
+                    SenoCossenoTangente();
                     break;
 
                 case 10:
@@ -67,99 +71,142 @@ namespace Calculadora
             }
         }
 
-        static void soma()
+        static void Soma()
         {
             Console.WriteLine("SOMA");
             Console.WriteLine("Coloque o Primeiro Valor");
-            float valor1 = float.Parse(Console.ReadLine());
+
+            var valor1 = float.Parse(Console.ReadLine());
+
             Console.WriteLine("Coloque o Segundo Valor");
-            float valor2 = float.Parse(Console.ReadLine());
+
+            var valor2 = float.Parse(Console.ReadLine());
+
             var resultado = valor1 + valor2;
+
             Console.WriteLine($"O Resultado da SOMA é: {resultado}");
-            Console.ReadKey();
-            Menu();
+            Continuar();
         }
 
-        static void subtracao()
+        static void Subtracao()
         {
             Console.WriteLine("SUBTRAÇÃO");
             Console.WriteLine("Coloque Primeiro Valor");
-            float valor1 = float.Parse(Console.ReadLine());
+            var valor1 = float.Parse(Console.ReadLine());
+
             Console.WriteLine("Coloque o Segundo Valor");
-            float valor2 = float.Parse(Console.ReadLine());
+
+            var valor2 = float.Parse(Console.ReadLine());
+
             Console.WriteLine($"O Resultado da SUBTRAÇÃO é: {valor1 - valor2}");
-            Console.ReadKey();
-            Menu();
+            Continuar();        
         }
 
-        static void multiplicacao()
+        static void Multiplicacao()
         {
 
             Console.WriteLine("MULTIPLICAÇÃO");
             Console.WriteLine("Coloque Primeiro Valor");
-            float valor1 = float.Parse(Console.ReadLine());
+
+            var valor1 = float.Parse(Console.ReadLine());
+
             Console.WriteLine("Coloque Segundo Valor");
-            float valor2 = float.Parse(Console.ReadLine());
+
+            var valor2 = float.Parse(Console.ReadLine());
+
             Console.WriteLine($"O Resultado da MULTIPLICAÇÃO é: {valor1 * valor2}");
-            Console.ReadKey();
-            Menu();
+            Continuar();
         }
 
-        static void divisao()
+        static void Divisao()
         {
             Console.WriteLine("DIVISÃO");
             Console.WriteLine("Coloque Primeiro Valor");
-            float valor1 = float.Parse(Console.ReadLine());
+
+            var valor1 = float.Parse(Console.ReadLine());
+
             Console.WriteLine("Coloque Segundo Valor");
-            float valor2 = float.Parse(Console.ReadLine());
+
+            var valor2 = float.Parse(Console.ReadLine());
+
             Console.WriteLine($"O Resuldado da DIVISÃO é : {valor1 / valor2}");
-            Console.ReadKey();
-            Menu();
+            Continuar();
         }
 
-        static void porcetagem()
+        static void Porcetagem()
         {
             Console.WriteLine("PORCETAGEM");
             Console.WriteLine("Coloque o Primeiro Valor");
+
             var valor1 = float.Parse(Console.ReadLine());
+
             Console.WriteLine($"Quantos PORCENTOS de {valor1}");
+
             var valor2 = float.Parse(Console.ReadLine());
+
             var resultado = (valor2/ 100) * valor1;
+
             Console.WriteLine($"O Resultado da PORCETAGEM é: {resultado}");
-            Console.ReadKey();
-            Menu();
+            Continuar();
         }
 
-        static void potenciacao()
+        static void Potenciacao()
         {
         Console.WriteLine("POTENCIAÇÃO");
         Console.WriteLine("Coloque o Primeiro Valor");
-        double valor1 = Convert.ToDouble(Console.ReadLine());
+        var valor1 = Convert.ToDouble(Console.ReadLine());
+
         Console.WriteLine("Coloque o Segundo Valor");
-        double valor2 = Convert.ToDouble(Console.ReadLine());
-        double resultado = Math.Pow(valor1, valor2);
+
+        var valor2 = Convert.ToDouble(Console.ReadLine());
+
+        var resultado = Math.Pow(valor1, valor2);
+
         Console.WriteLine($"O Resultado da POTENCIAÇÃO é: {resultado}");
-        Console.ReadKey();
-        Menu();
+        Continuar();
         }
 
-        static void senocossenotangente()
+        static void SenoCossenoTangente()
         {
             Console.WriteLine("SENO COSENO TANGENTE");
-            double angulo;
+
+            var angulo;
+
             Console.WriteLine("Coloque qual o ângulo em °: ");
             angulo = double.Parse(Console.ReadLine());
 
-            double seno = Math.Sin(angulo * (Math.PI / 180));
-            double cosseno = Math.Cos(angulo * (Math.PI / 180));
-            double tangente = Math.Tan(angulo * (Math.PI / 180));
+            var seno = Math.Sin(angulo * (Math.PI / 180));
+
+            var cosseno = Math.Cos(angulo * (Math.PI / 180));
+
+            var tangente = Math.Tan(angulo * (Math.PI / 180));
 
             Console.WriteLine($"O SENO de {angulo}° é: {Math.Round(seno, 3)}");
             Console.WriteLine($"O COSSENO de {angulo}° é: {Math.Round(cosseno, 3)}");
             Console.WriteLine($"O TANGENTE de {angulo}° é: {Math.Round(tangente, 3)}");
 
-            Console.ReadKey();
-            Menu();
+            Continuar();
+        }
+
+        static void Continuar()
+        {
+            Console.WriteLine("Deseja continuar: ");
+            Console.WriteLine(" ");
+            Console.WriteLine("1 - Sim");
+            Console.WriteLine("2 - Não");
+
+            var resposta = Console.ReadLine();
+
+            if (resposta == "1")
+            {
+                Menu();
+            }
+
+            else
+            {
+                System.Environment.Exit(0);
+            }
+
         }
 
     }
