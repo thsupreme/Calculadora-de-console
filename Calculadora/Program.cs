@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Xml;
@@ -25,7 +26,10 @@ namespace Calculadora
             Console.WriteLine("4 - DIVISÃO");
             Console.WriteLine("5 - PORCETAGEM");
             Console.WriteLine("6 - POTENCIAÇÃO");
-            Console.WriteLine("7 - SAIR DA APLIACAÇÃO");
+            Console.WriteLine("7 - SENO COSSENO TANGENTE");
+            Console.WriteLine("8 - PORCETAGEM");
+            Console.WriteLine("9 - ");
+            Console.WriteLine("10 - SAIR DA APLIACAÇÃO");
             short key = short.Parse(Console.ReadLine());
             switch (key)
             {
@@ -54,6 +58,10 @@ namespace Calculadora
                     break;
 
                 case 7:
+                    senocossenotangente();
+                    break;
+
+                case 10:
                     System.Environment.Exit(0);
                     break;
             }
@@ -133,6 +141,25 @@ namespace Calculadora
         Console.WriteLine($"O Resultado da POTENCIAÇÃO é: {resultado}");
         Console.ReadKey();
         Menu();
+        }
+
+        static void senocossenotangente()
+        {
+            Console.WriteLine("SENO COSENO TANGENTE");
+            double angulo;
+            Console.WriteLine("Coloque qual o ângulo em °: ");
+            angulo = double.Parse(Console.ReadLine());
+
+            double seno = Math.Sin(angulo * (Math.PI / 180));
+            double cosseno = Math.Cos(angulo * (Math.PI / 180));
+            double tangente = Math.Tan(angulo * (Math.PI / 180));
+
+            Console.WriteLine($"O SENO de {angulo}° é: {Math.Round(seno, 3)}");
+            Console.WriteLine($"O COSSENO de {angulo}° é: {Math.Round(cosseno, 3)}");
+            Console.WriteLine($"O TANGENTE de {angulo}° é: {Math.Round(tangente, 3)}");
+
+            Console.ReadKey();
+            Menu();
         }
 
     }
