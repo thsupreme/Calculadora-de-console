@@ -1,5 +1,10 @@
 ﻿using System;
-
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Xml;
 
 
 namespace Calculadora
@@ -32,7 +37,7 @@ namespace Calculadora
             Console.WriteLine("");
             Console.WriteLine("8 - PORCETAGEM");
             Console.WriteLine("");
-            Console.WriteLine("9 - SAIR DA APLIACAÇÃO");
+            Console.WriteLine("10 - SAIR DA APLIACAÇÃO");
 
             short key = short.Parse(Console.ReadLine());
             switch (key)
@@ -137,15 +142,10 @@ namespace Calculadora
         {
             Console.WriteLine("PORCETAGEM");
             Console.WriteLine("Coloque o Primeiro Valor");
-
             var valor1 = float.Parse(Console.ReadLine());
-
             Console.WriteLine($"Quantos PORCENTOS de {valor1}");
-
             var valor2 = float.Parse(Console.ReadLine());
-
             var resultado = (valor2/ 100) * valor1;
-
             Console.WriteLine($"O Resultado da PORCETAGEM é: {resultado}");
             Continuar();
         }
@@ -170,15 +170,13 @@ namespace Calculadora
         {
             Console.WriteLine("SENO COSENO TANGENTE");
 
-            var angulo;
+            double angulo;
 
             Console.WriteLine("Coloque qual o ângulo em °: ");
             angulo = double.Parse(Console.ReadLine());
 
             var seno = Math.Sin(angulo * (Math.PI / 180));
-
             var cosseno = Math.Cos(angulo * (Math.PI / 180));
-
             var tangente = Math.Tan(angulo * (Math.PI / 180));
 
             Console.WriteLine($"O SENO de {angulo}° é: {Math.Round(seno, 3)}");
